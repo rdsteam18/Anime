@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Panel</title>
+</head>
+<body>
+  <h2>Add New Anime</h2>
+  <form id="animeForm">
+    <input type="text" name="animeName" placeholder="Anime Name" required><br>
+    <input type="text" name="imageURL" placeholder="Image URL" required><br>
+    <textarea name="description" placeholder="Anime Description" required></textarea><br>
+    <textarea name="episodes" placeholder="1=https://ep1\n2=https://ep2" required></textarea><br>
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    document.getElementById("animeForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      const data = Object.fromEntries(formData.entries());
+
+      fetch("https://script.google.com/macros/s/AKfycbyPax6hDHK0FvHro2yqdDQ2SFJz9Dd1bIR1FzH4tzlsnAvxdTzUccXzCYQkiPkBQ7o/exec", {
+        method: "POST",
+        body: JSON.stringify(data)
+      })
+      .then(res => res.text())
+      .then(alert)
+      .catch(err => alert("Error: " + err));
+    });
+  </script>
+</body>
+</html>
