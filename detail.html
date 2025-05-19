@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Wick: Chapter 4 | NETLIFY</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#E50914',
+                        dark: '#141414',
+                        secondary: '#222222',
+                        light: '#F5F5F5',
+                    },
+                    fontFamily: {
+                        sans: ['Helvetica', 'Arial', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+</head>
+<body class="bg-dark text-light font-sans">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-dark/90 backdrop-blur-sm border-b border-secondary/50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-8">
+                <a href="#" class="text-primary font-bold text-3xl">NETLIFY</a>
+                <nav class="hidden md:flex space-x-6">
+                    <a href="#" class="hover:text-primary transition">Home</a>
+                    <a href="#" class="hover:text-primary transition">Movies</a>
+                    <a href="#" class="hover:text-primary transition">TV Shows</a>
+                    <a href="#" class="hover:text-primary transition">New & Popular</a>
+                    <a href="#" class="hover:text-primary transition">My List</a>
+                </nav>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="relative hidden md:block">
+                    <input type="text" placeholder="Search movies..." class="search-input bg-secondary text-light px-4 py-2 rounded-full w-64 focus:w-72 transition-all duration-300">
+                    <button class="absolute right-3 top-2 text-gray-400">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <button class="md:hidden" id="hamburger">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                    <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Movie Hero Section -->
+    <section class="movie-backdrop h-96 md:h-[70vh] relative">
+        <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/70 to-transparent"></div>
+        <div class="container mx-auto px-4 h-full flex items-end relative z-10 pb-12">
+            <div class="flex flex-col md:flex-row gap-8 w-full">
+                <div class="w-full md:w-1/3 lg:w-1/4 flex justify-center md:justify-start">
+                    <img src="https://image.tmdb.org/t/p/w500/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg" alt="John Wick: Chapter 4" class="w-64 h-96 object-cover rounded-lg shadow-xl">
+                </div>
+                <div class="w-full md:w-2/3 lg:w-3/4 text-center md:text-left">
+                    <h1 class="text-3xl md:text-5xl font-bold mb-2">John Wick: Chapter 4</h1>
+                    <div class="flex justify-center md:justify-start items-center space-x-4 mb-4">
+                        <span class="text-green-500 font-semibold">94% Match</span>
+                        <span>2023</span>
+                        <span class="border border-gray-400 px-1">R</span>
+                        <span>2h 49m</span>
+                        <span class="hidden md:inline">• Action, Thriller, Crime</span>
+                    </div>
+                    <div class="flex flex-wrap justify-center md:justify-start gap-3 mb-6">
+                        <span class="bg-secondary/50 px-3 py-1 rounded-full text-sm">Action</span>
+                        <span class="bg-secondary/50 px-3 py-1 rounded-full text-sm">Thriller</span>
+                        <span class="bg-secondary/50 px-3 py-1 rounded-full text-sm">Crime</span>
+                    </div>
+                    <p class="text-lg mb-6 max-w-3xl mx-auto md:mx-0">With the price on his head ever increasing, John Wick uncovers a path to defeating The High Table. But before he can earn his freedom, Wick must face off against a new enemy with powerful alliances across the globe and forces that turn old friends into foes.</p>
+                    <div class="flex flex-wrap justify-center md:justify-start gap-4">
+                        <button class="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg flex items-center space-x-2 transition">
+                            <i class="fas fa-play"></i>
+                            <span class="font-semibold">Play</span>
+                        </button>
+                        <button class="bg-secondary hover:bg-secondary/80 text-white px-6 py-3 rounded-lg flex items-center space-x-2 transition">
+                            <i class="fas fa-plus"></i>
+                            <span class="font-semibold">My List</span>
+                        </button>
+                        <button class="bg-secondary hover:bg-secondary/80 text-white px-6 py-3 rounded-lg flex items-center space-x-2 transition">
+                            <i class="fas fa-share"></i>
+                            <span class="font-semibold">Share</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Movie Details -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Tabs Navigation -->
+        <div class="border-b border-secondary mb-8">
+            <div class="flex space-x-8">
+                <button class="tab-button py-3 font-semibold active" data-tab="about">About</button>
+                <button class="tab-button py-3 font-semibold" data-tab="cast">Cast</button>
+                <button class="tab-button py-3 font-semibold" data-tab="reviews">Reviews</button>
+                <button class="tab-button py-3 font-semibold" data-tab="similar">Similar Movies</button>
+            </div>
+        </div>
+
+        <!-- Tab Content -->
+        <div class="tab-content active" id="about">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2">
+                    <h2 class="text-2xl font-bold mb-4">Storyline</h2>
+                    <p class="mb-6">With the price on his head ever increasing, John Wick uncovers a path to defeating The High Table. But before he can earn his freedom, Wick must face off against a new enemy with powerful alliances across the globe and forces that turn old friends into foes.</p>
+                    
+                    <h2 class="text-2xl font-bold mb-4">Details</h2>
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div>
+                            <h3 class="font-semibold text-gray-400">Release Date</h3>
+                            <p>March 24, 2023</p>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-gray-400">Director</h3>
+                            <p>Chad Stahelski</p>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-gray-400">Budget</h3>
+                            <p>$100,000,000</p>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-gray-400">Revenue</h3>
+                            <p>$428,000,000</p>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-gray-400">Runtime</h3>
+                            <p>2h 49m</p>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-gray-400">Language</h3>
+                            <p>English</p>
+                        </div>
+                    </div>
+                    
+                    <h2 class="text-2xl font-bold mb-4">Trailer</h2>
+                    <div class="aspect-w-16 aspect-h-9 bg-secondary rounded-lg overflow-hidden">
+                        <iframe class="w-full h-96" src="https://www.youtube.com/embed/qEVUtrk8_B4" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+                
+                <div>
+                    <h2 class="text-2xl font-bold mb-4">Ratings & Reviews</h2>
+                    <div class="bg-secondary/50 p-6 rounded-lg mb-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-16 h-16 rounded-full bg-primary flex items-center justify-center text-2xl font-bold">
+                                94
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="font-semibold">NETLIFY Score</h3>
+                                <p class="text-sm text-gray-400">Based on 250 reviews</p>
+                            </div>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <span class="w-20">Excellent</span>
+                                <div class="flex-1 bg-dark h-2 rounded-full mx-2">
+                                    <div class="bg-primary h-2 rounded-full" style="width: 80%"></div>
+                                </div>
+                                <span>80%</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="w-20">Good</span>
+                                <div class="flex-1 bg-dark h-2 rounded-full mx-2">
+                                    <div class="bg-primary h-2 rounded-full" style="width: 15%"></div>
+                                </div>
+                                <span>15%</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="w-20">Average</span>
+                                <div class="flex-1 bg-dark h-2 rounded-full mx-2">
+                                    <div class="bg-primary h-2 rounded-full" style="width: 3%"></div>
+                                </div>
+                                <span>3%</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="w-20">Poor</span>
+                                <div class="flex-1 bg-dark h-2 rounded-full mx-2">
+                                    <div class="bg-primary h-2 rounded-full" style="width: 2%"></div>
+                                </div>
+                                <span>2%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-secondary/50 p-6 rounded-lg">
+                        <h3 class="font-semibold mb-4">Rate this movie</h3>
+                        <div class="flex items-center space-x-2 mb-4">
+                            <i class="fas fa-star text-yellow-400 cursor-pointer hover:text-yellow-300 text-xl"></i>
+                            <i class="fas fa-star text-yellow-400 cursor-pointer hover:text-yellow-300 text-xl"></i>
+                            <i class="fas fa-star text-yellow-400 cursor-pointer hover:text-yellow-300 text-xl"></i>
+                            <i class="fas fa-star text-yellow-400 cursor-pointer hover:text-yellow-300 text-xl"></i>
+                            <i class="fas fa-star text-gray-400 cursor-pointer hover:text-yellow-300 text-xl"></i>
+                        </div>
+                        <textarea class="w-full bg-dark border border-secondary rounded-lg p-3 mb-3" placeholder="Write your review..." rows="3"></textarea>
+                        <button class="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg w-full">Submit Review</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cast Tab -->
+        <div class="tab-content" id="cast">
+            <h2 class="text-2xl font-bold mb-6">Cast & Crew</h2>
+            <div class="cast-scroll overflow-x-auto pb-4">
+                <div class="flex space-x-6 w-max">
+                    <!-- Cast Members -->
+                    <div class="w-32 flex-shrink-0">
+                        <div class="w-32 h-32 rounded-full overflow-hidden mb-3">
+                            <img src="https://image.tmdb.org/t/p/w300/1N4bPwPqkDwmASzqkZk1w8VZvTv.jpg" alt="Keanu Reeves" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="font-semibold text-center">Keanu Reeves</h3>
+                        <p class="text-sm text-gray-400 text-center">John Wick</p>
+                    </div>
+                    <div class="w-32 flex-shrink-0">
+                        <div class="w-32 h-32 rounded-full overflow-hidden mb-3">
+                            <img src="https://image.tmdb.org/t/p/w300/7rwSXluNWZAluYMOEWBxkPmckES.jpg" alt="Donnie Yen" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="font-semibold text-center">Donnie Yen</h3>
+                        <p class="text-sm text-gray-400 text-center">Caine</p>
+                    </div>
+                    <div class="w-32 flex-shrink-0">
+                        <div class="w-32 h-32 rounded-full overflow-hidden mb-3">
+                            <img src="https://image.tmdb.org/t/p/w300/7XD2vrQl5rBk7QkP3aZ6KzZzF9J.jpg" alt="Bill Skarsgård" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="font-semibold text-center">Bill Skarsgård</h3>
+                        <p class="text-sm text-gray-400 text-center">Marquis</p>
+                    </div>
+                    <div class="w-32 flex-shrink-0">
+                        <div class="w-32 h-32 rounded-full overflow-hidden mb-3">
+                            <img src="https://image.tmdb.org/t/p/w300/7XD2vrQl5rBk7QkP3aZ6KzZzF9J.jpg" alt="Laurence Fishburne" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="font-semibold text-center">Laurence Fishburne</h3>
+                        <p class="text-sm text-gray-400 text-center">Bowery King</p>
+                    </div>
+                    <div class="w-32 flex-shrink-0">
+                        <div class="w-32 h-32 rounded-full overflow-hidden mb-3">
+                            <img src="https://image.tmdb.org/t/p/w300/1N4bPwPqkDwmASzqkZk1w8VZvTv.jpg" alt="Hiroyuki Sanada" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="font-semibold text-center">Hiroyuki Sanada</h3>
+                        <p class="text-sm text-gray-400 text-center">Shimazu</p>
+                    </div>
+                    <div class="w-32 flex-shrink-0">
+                        <div class="w-32 h-32 rounded-full overflow-hidden mb-3">
+                            <img src="https://image.tmdb.org/t/p/w300/7rwSXluNWZAluYMOEWBxkPmckES.jpg" alt="Shamier Anderson" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="font-semibold text-center">Shamier Anderson</h3>
+                        <p class="text-sm text-gray-400 text-center">Tracker</p>
+                    </div>
+                    <div class="w-32 flex-shrink-0">
+                        <div class="w-32 h-32 rounded-full overflow-hidden mb-3">
+                            <img src="https://image.tmdb.org/t/p/w300/7XD2vrQl5rBk7QkP3aZ6KzZzF9J.jpg" alt="Lance Reddick" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="font-semibold text-center">Lance Reddick</h3>
+                        <p class="text-sm text-gray-400 text-center">Charon</p>
+                    </div>
+                    <div class="w-32 flex-shrink-0">
+                        <div class="w-32 h-32 rounded-full overflow-hidden mb-3">
+                            <img src="https://image.tmdb.org/t/p/w300/1N4bPwPqkDwmASzqkZk1w8VZvTv.jpg" alt="Rina Sawayama" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="font-semibold text-center">Rina Sawayama</h3>
+                        <p class="text-sm text-gray-400 text-center">Akira</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="text-2xl font-bold mt-12 mb-6">Crew</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <div>
+                    <h3 class="font-semibold">Chad Stahelski</h3>
+                    <p class="text-sm text-gray-400">Director</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold">Michael Finch</h3>
+                    <p class="text-sm text-gray-400">Screenplay</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold">Shay Hatten</h3>
+                    <p class="text-sm text-gray-400">Screenplay</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold">Kevin Kavanaugh</h3>
+                    <p class="text-sm text-gray-400">Production Design</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold">Dan Laustsen</h3>
+                    <p class="text-sm text-gray-400">Cinematography</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold">Nathan Orloff</h3>
+                    <p class="text-sm text-gray-400">Editor</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold">Tyler Bates</h3>
+                    <p class="text-sm text-gray-400">Music</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold">Joel J. Richard</h3>
+                    <p class="text-sm text-gray-400">Music</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reviews Tab -->
+        <div class="tab-content" id="reviews">
+            <h2 class="text-2xl font-bold mb-6">User Reviews</h2>
+            
+            <div class="space-y-6">
+                <!-- Review 1 -->
+                <div class="bg-secondary/50 p-6 rounded-lg">
+                    <div class="flex items-start mb-4">
+                        <div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-lg font-bold mr-4">
+                            JD
+                        </div>
+                        <div>
+                            <h3 class="font-semibold">John Doe</h3>
+                            <div class="flex items-center space-x-1 text-sm text-gray-400">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <span>• 2 days ago</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="mb-4">Absolutely breathtaking action sequences! Keanu Reeves delivers another stellar performance as John Wick. The cinematography is stunning, and the fight choreography is some of the best I've ever seen. The story keeps you engaged throughout its nearly 3-hour runtime.</p>
+                    <div class="flex space-x-4 text-sm">
+                        <button class="text-primary hover:underline">Helpful (24)</button>
+                        <button class="text-gray-400 hover:underline">Reply</button>
+                    </div>
+                </div>
+                
+                <!-- Review 2 -->
+                <div class="bg-secondary/50 p-6 rounded-lg">
+                    <div class="flex items-start mb-4">
+                        <div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-lg font-bold mr-4">
+                            MS
+                        </div>
+                        <div>
+                            <h3 class="font-semibold">Movie Scholar</h3>
+                            <div class="flex items-center space-x-1 text-sm text-gray-400">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star-half-alt text-yellow-400"></i>
+                                <span>• 1 week ago</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="mb-4">While the action is undeniably impressive, the film does suffer from some pacing issues in the middle act. However, the final act more than makes up for it with some of the most creative action set pieces in recent memory. Donnie Yen is a standout addition to the cast.</p>
+                    <div class="flex space-x-4 text-sm">
+                        <button class="text-primary hover:underline">Helpful (12)</button>
+                        <button class="text-gray-400 hover:underline">Reply</button>
+                    </div>
+                </div>
+                
+                <!-- Review 3 -->
+                <div class="bg-secondary/50 p-6 rounded-lg">
+                    <div class="flex items-start mb-4">
+                        <div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-lg font-bold mr-4">
+                            CF
+                        </div>
+                        <div>
+                            <h3 class="font-semibold">Cinema Fan</h3>
+                            <div class="flex items-center space-x-1 text-sm text-gray-400">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="far fa-star text-yellow-400"></i>
+                                <span>• 3 weeks ago</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="mb-4">The John Wick franchise continues to raise the bar for action films. Chapter 4 delivers on all fronts - incredible stunts, a compelling world, and emotional stakes that make you care about the characters. The Berlin club sequence alone is worth the price of admission.</p>
+                    <div class="flex space-x-4 text-sm">
+                        <button class="text-primary hover:underline">Helpful (36)</button>
+                        <button class="text-gray-400 hover:underline">Reply</button>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="mt-8 bg-secondary hover:bg-secondary/80 text-white px-6 py-3 rounded-lg w-full">Load More Reviews</button>
+        </div>
+
+        <!-- Similar Movies Tab -->
+        <div class="tab-content similar-movies" id="similar">
+            <h2 class="text-2xl font-bold mb-6">Similar Movies</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                <!-- Similar Movie 1 -->
+                <div class="movie-card relative rounded-lg overflow-hidden group">
+                    <img src="https://image.tmdb.org/t/p/w500/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg" alt="John Wick" class="w-full h-auto rounded-lg transition group-hover:opacity-70">
+                    <div class="movie-overlay absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 to-transparent">
+                        <h3 class="font-semibold text-white truncate">John Wick</h3>
+                        <div class="flex justify-between items-center mt-1">
+                            <span class="text-sm">2014</span>
+                            <div class="flex items-center space-x-1">
+                                <i class="fas fa-star text-yellow-400 text-sm"></i>
+                                <span class="text-sm">86%</span>
+                            </div>
+                        </div>
+                        <div class="flex space-x-2 mt-3">
+                            <button class="bg-primary hover:bg-primary/90 text-white p-2 rounded-full transition">
+                                <i class="fas fa-play text-xs"></i>
+                            </button>
+                            <button class="bg-secondary hover:bg-secondary/80 text-white p-2 rounded-full transition">
+                                <i class="fas fa-plus text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Similar Movie 2 -->
+                <div class="movie-card relative rounded-lg overflow-hidden group">
+                    <img src="https://image.tmdb.org/t/p/w500/ziEuG1essDuWuC5lpWUaw1uXY2O.jpg" alt="John Wick: Chapter 2" class="w-full h-auto rounded-lg transition group-hover:opacity-70">
+                    <div class="movie-overlay absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 to-transparent">
+                        <h3 class="font-semibold text-white truncate">John Wick: Chapter 2</h3>
+                        <div class="flex justify-between items-center mt-1">
+                            <span class="text-sm">2017</span>
+                            <div class="flex items-center space-x-1">
+                                <i class="fas fa-star text-yellow-400 text-sm"></i>
+                                <span class="text-sm">85%</span>
+                            </div>
+                        </div>
+                        <div class="flex space-x-2 mt-3">
+                            <button class="bg-primary hover:bg-primary/90 text-white p-2 rounded-full transition">
+                                <i class="fas fa-play text-xs"></i>
+                            </button>
+                            <button class="bg-secondary hover:bg-secondary/80 text-white p-2 rounded-full transition">
+                                <i class="fas fa-plus text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Similar Movie 3 -->
+                <div class="movie-card relative rounded-lg overflow-hidden group">
+                    <img src="https://image.tmdb.org/t/p/w500/ziEuG1essDuWuC5lpWUaw1uXY2O.jpg" alt="John Wick: Chapter 3" class="w-full h-auto rounded-lg transition group-hover:opacity-70">
+                    <div class="movie-overlay absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 to-transparent">
+                        <h3 class="font-semibold text-white truncate">John Wick: Chapter 3</h3>
+                        <div class="flex justify-between items-center mt-1">
+                            <span class="text-sm">2019</span>
+                            <div class="flex items-center space-x-1">
+                                <i class="fas fa-star text-yellow-400 text-sm"></i>
+                                <span class="text-sm">89%</span>
+                            </div>
+                        </div>
+                        <div class="flex space-x-2 mt-3">
+                            <button class="bg-primary hover:bg-primary/90 text-white p-2 rounded-full transition">
+                                <i class="fas fa-play text-xs"></i>
+                            </button>
+                            <button class="bg-secondary hover:bg-secondary/80 text-white p-2 rounded-full transition">
+                                <i class="fas fa-plus text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Similar Movie 4 -->
+                <div class="movie-card relative rounded-lg overflow-hidden group">
+                    <img src="https://image.tmdb.org/t/p/w500/qAZ0pzat4kSfC7AeJw6YQybqTnK.jpg" alt="Nobody" class="w-full h-auto rounded-lg transition group-hover:opacity-70">
+                    <div class="movie-overlay absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 to-transparent">
+                        <h3 class="font-semibold text-white truncate">Nobody</h3>
+                        <div class="flex justify-between items-center mt-1">
+                            <span class="text-sm">2021</span>
+                            <div class="flex items-center space-x-1">
+                                <i class="fas fa-star text-yellow-400 text-sm"></i>
+                                <span class="text-sm">82%</span>
+                            </div>
+                        </div>
+                        <div class="flex space-x-2 mt-3">
+                            <button class="bg-primary hover:bg-primary/90 text-white p-2 rounded-full transition">
+                                <i class="fas fa-play text-xs"></i>
+                            </button>
+                            <button class="bg-secondary hover:bg-secondary/80 text-white p-2 rounded-full transition">
+                                <i class="fas fa-plus text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Similar Movie 5 -->
+                <div class="movie-card relative rounded-lg overflow-hidden group">
+                    <img src="https://image.tmdb.org/t/p/w500/1N4bPwPqkDwmASzqkZk1w8VZvTv.jpg" alt="The Equalizer" class="w-full h-auto rounded-lg transition group-hover:opacity-70">
+                    <div class="movie-overlay absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 to-transparent">
+                        <h3 class="font-semibold text-white truncate">The Equalizer</h3>
+                        <div class="flex justify-between items-center mt-1">
+                            <span class="text-sm">2014</span>
+                            <div class="flex items-center space-x-1">
+                                <i class="fas fa-star text-yellow-400 text-sm"></i>
+                                <span class="text-sm">78%</span>
+                            </div>
+                        </div>
+                        <div class="flex space-x-2 mt-3">
+                            <button class="bg-primary hover:bg-primary/90 text-white p-2 rounded-full transition">
+                                <i class="fas fa-play text-xs"></i>
+                            </button>
+                            <button class="bg-secondary hover:bg-secondary/80 text-white p-2 rounded-full transition">
+                                <i class="fas fa-plus text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Similar Movie 6 -->
+                <div class="movie-card relative rounded-lg overflow-hidden group">
+                    <img src="https://image.tmdb.org/t/p/w500/7rwSXluNWZAluYMOEWBxkPmckES.jpg" alt="Extraction" class="w-full h-auto rounded-lg transition group-hover:opacity-70">
+                    <div class="movie-overlay absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 to-transparent">
+                        <h3 class="font-semibold text-white truncate">Extraction</h3>
+                        <div class="flex justify-between items-center mt-1">
+                            <span class="text-sm">2020</span>
+                            <div class="flex items-center space-x-1">
+                                <i class="fas fa-star text-yellow-400 text-sm"></i>
+                                <span class="text-sm">76%</span>
+                            </div>
+                        </div>
+                        <div class="flex space-x-2 mt-3">
+                            <button class="bg-primary hover:bg-primary/90 text-white p-2 rounded-full transition">
+                                <i class="fas fa-play text-xs"></i>
+                            </button>
+                            <button class="bg-secondary hover:bg-secondary/80 text-white p-2 rounded-full transition">
+                                <i class="fas fa-plus text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-secondary text-gray-400 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
+                <div class="col-span-2">
+                    <h3 class="text-primary text-3xl font-bold mb-4">NETLIFY</h3>
+                    <p class="mb-4">The best place to stream unlimited movies and TV shows. Anytime. Anywhere.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-2xl hover:text-primary transition"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-2xl hover:text-primary transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-2xl hover:text-primary transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-2xl hover:text-primary transition"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white text-lg font-semibold mb-4">Navigation</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-primary transition">Home</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Movies</a></li>
+                        <li><a href="#" class="hover:text-primary transition">TV Shows</a></li>
+                        <li><a href="#" class="hover:text-primary transition">New Releases</a></li>
+                        <li><a href="#" class="hover:text-primary transition">My List</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white text-lg font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-primary transition">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Cookie Policy</a></li>
+                        <li><a href="#" class="hover:text-primary transition">GDPR</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white text-lg font-semibold mb-4">Help</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-primary transition">FAQ</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Feedback</a></li>
+                        <li><a href="#" class="hover:text-primary transition">System Status</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-sm">
+                <p>© 2023 NETLIFY. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+   <script src="app.js"></script>
+</body>
+</html>
