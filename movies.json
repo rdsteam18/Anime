@@ -1,0 +1,146 @@
+[
+     {
+        "id": 1,
+        "title": "The Batman",
+        "year": 2022,
+        "rating": 85,
+        "poster": "https://image.tmdb.org/t/p/w500/seyWFgGInaLqW7nOZvu0V95aOx8.jpg",
+        "detailUrl": "file:///C:/Users/DELL/Downloads/22/detail.html"
+    },
+    {
+        "id": 2,
+        "title": "Top Gun: Maverick",
+        "year": 2022,
+        "rating": 83,
+        "poster": "https://image.tmdb.org/t/p/w500/62HCnUTziyWcpDaBO2i1DX17ljH.jpg",
+        "detailUrl": "file:///C:/Users/DELL/Downloads/22/detail.html"
+    },
+    {
+        "id": 3,
+        "title": "Avatar: The Way of Water",
+        "year": 2022,
+        "rating": 76,
+        "poster": "https://image.tmdb.org/t/p/w500/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg",
+        "detailUrl": "file:///C:/Users/DELL/Downloads/22/detail.html" 
+    },
+    {
+        "id": 4,
+        "title": "Black Panther: Wakanda Forever",
+        "year": 2022,
+        "rating": 72,
+        "poster": "https://image.tmdb.org/t/p/w500/sv1xJUazXeYqALzczSZ3O6nkH75.jpg",
+        "detailUrl": "file:///C:/Users/DELL/Downloads/22/detail.html"
+    },
+    {
+        "id": 5,
+        "title": "Jurassic World Dominion",
+        "year": 2022,
+        "rating": 61,
+        "poster": "https://image.tmdb.org/t/p/w500/kAVRgw7GgK1CfYEJq8ME6EvRIgU.jpg",
+        "detailUrl": "file:///C:/Users/DELL/Downloads/22/detail.html"
+    },
+    {
+        "id": 6,
+        "title": "Doctor Strange in the Multiverse of Madness",
+        "year": 2022,
+        "rating": 74,
+        "poster": "https://image.tmdb.org/t/p/w500/9Gtg2DzBhmYamXBS1hKAhiwbBKS.jpg",
+        "detailUrl": "file:///C:/Users/DELL/Downloads/22/detail.html"
+    },
+    {
+        "id": 7,
+        "title": "Thor: Love and Thunder",
+        "year": 2022,
+        "rating": 67,
+        "poster": "https://image.tmdb.org/t/p/w500/pIkRyD18kl4FhoCNQuWxWu5cBLM.jpg",
+        "detailUrl": "file:///C:/Users/DELL/Downloads/22/detail.html"
+    },
+    {
+        "id": 8,
+        "title": "Minions: The Rise of Gru",
+        "year": 2022,
+        "rating": 71,
+        "poster": "https://image.tmdb.org/t/p/w500/wKiOkZTNKJlMJxCdVNWuewD7BED.jpg",
+        "detailUrl": "file:///C:/Users/DELL/Downloads/22/detail.html"
+    },
+    {
+        "id": 9,
+        "title": "The Northman",
+        "year": 2022,
+        "rating": 82,
+        "poster": "https://image.tmdb.org/t/p/w500/zhLKlUaF1SEpO58ppHIAeel0FkT.jpg",
+        "detailUrl": "file:///C:/Users/DELL/Downloads/22/detail.html"
+    },
+    {
+        "id": 10,
+        "title": "Everything Everywhere All at Once",
+        "year": 2022,
+        "rating": 87,
+        "poster": "https://image.tmdb.org/t/p/w500/w3LxiVYdWWRvEVlg5V0E8Bryzg2.jpg",
+        "detailUrl": "file:///C:/Users/DELL/Downloads/22/detail.html"
+    },
+    {
+        "id": 11,
+        "title": "The Unbearable Weight of Massive Talent",
+        "year": 2022,
+        "rating": 70,
+        "poster": "https://image.tmdb.org/t/p/w500/fYVt0H2uvAwNvH2u6Ykhgh9IDgQ.jpg",
+        "detailUrl": "file:///C:/Users/DELL/Downloads/22/detail.html"
+    },
+    {
+        "id": 12,
+        "title": "Nope",
+        "year": 2022,
+        "rating": 78,
+        "poster": "https://image.tmdb.org/t/p/w500/AcKVlWiNONHsF1kNhAqC9Y6l7Bb.jpg",
+        "detailUrl": "file:///C:/Users/DELL/Downloads/22/detail.html"
+    },
+    {
+        "id": 13,
+        "title": "Bullet Train",
+        "year": 2022,
+        "rating": 75,
+        "poster": "https://image.tmdb.org/t/p/w500/tVxDe01Zy3kZqaZRNiXFGDICdZk.jpg",
+        "detailUrl": "file:///C:/Users/DELL/Downloads/22/detail.html"
+    },
+    {
+        "id": 14,
+        "title": "Elvis",
+        "year": 2022,
+        "rating": 79,
+        "poster": "https://image.tmdb.org/t/p/w500/qBOKWqAFbveZ4ryjJJwbie6tXkF.jpg",
+        "detailUrl": "file:///C:/Users/DELL/Downloads/22/detail.html"
+    },
+    {
+        "id": 15,
+        "title": "The Woman King",
+        "year": 2022,
+        "rating": 80,
+        "poster": "https://image.tmdb.org/t/p/w500/438QXt1E3WJWb3PqNniK0tAE5c1.jpg",
+        "detailUrl": "file:///C:/Users/DELL/Downloads/22/detail.html"
+    },
+    {
+        "id": 16,
+        "title": "Smile",
+        "year": 2022,
+        "rating": 68,
+        "poster": "https://image.tmdb.org/t/p/w500/aPqcQwu4VGEewPhagWNncDbJ9Xp.jpg",
+        "detailUrl": "file:///C:/Users/DELL/Downloads/22/detail.html"
+    },
+    {
+        "id": 17,
+        "title": "Tár",
+        "year": 2022,
+        "rating": 86,
+        "poster": "https://image.tmdb.org/t/p/w500/2bE4KKUxxYq5JyQ5K8KZngvj0zq.jpg",
+        "detailUrl": "file:///C:/Users/DELL/Downloads/22/detail.html"
+    },
+    {
+        "id": 18,
+        "title": "The Menu",
+        "year": 2022,
+        "rating": 77,
+        "poster": "https://image.tmdb.org/t/p/w500/3ZqJYjVxQqWMUM5lPBDWQ1UjXoN.jpg",
+        "detailUrl": "/detail.html"
+    }
+]
