@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NETLIFY - Stream Unlimited Movies & Shows</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#E50914',
+                        dark: '#141414',
+                        secondary: '#222222',
+                        light: '#F5F5F5',
+                    },
+                    fontFamily: {
+                        sans: ['Helvetica', 'Arial', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-dark text-light font-sans">
+    <!-- Header -->
+   <header class="sticky top-0 z-50 bg-dark/90 backdrop-blur-sm border-b border-secondary/50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-8">
+                <a href="#" class="text-primary font-bold text-3xl">NETLIFY</a>
+                <nav class="hidden md:flex space-x-6">
+                    <a href="#" class="hover:text-primary transition">Home</a>
+                    <a href="#" class="hover:text-primary transition">Movies</a>
+                    <a href="#" class="hover:text-primary transition">TV Shows</a>
+                    <a href="#" class="hover:text-primary transition">New & Popular</a>
+                    <a href="#" class="hover:text-primary transition">My List</a>
+                </nav>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="relative hidden md:block">
+                    <input type="text" placeholder="Search movies..." class="search-input bg-secondary text-light px-4 py-2 rounded-full w-64 focus:w-72 transition-all duration-300">
+                    <button class="absolute right-3 top-2 text-gray-400">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <button class="md:hidden" id="hamburger">
+                        <i class="fas fa-bars text-2xl hamburger"></i>
+                    </button>
+                    <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+         <!-- Mobile Menu -->
+        <div class="mobile-menu md:hidden bg-secondary/50" id="mobileMenu">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+                <input type="text" placeholder="Search movies..." class="search-input bg-secondary text-light px-4 py-2 rounded-full w-full">
+                <a href="#" class="block py-2 hover:text-primary transition">Home</a>
+                <a href="#" class="block py-2 hover:text-primary transition">Movies</a>
+                <a href="#" class="block py-2 hover:text-primary transition">TV Shows</a>
+                <a href="#" class="block py-2 hover:text-primary transition">New & Popular</a>
+                <a href="#" class="block py-2 hover:text-primary transition">My List</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero h-96 md:h-screen md:max-h-[700px] flex items-center relative">
+        <div class="container mx-auto px-4 z-10">
+            <div class="max-w-2xl">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4">John Wick: Chapter 4</h1>
+                <div class="flex space-x-4 mb-6">
+                    <span class="text-green-500 font-semibold">94% Match</span>
+                    <span>2023</span>
+                    <span class="border border-gray-400 px-1">R</span>
+                    <span>2h 49m</span>
+                </div>
+                <p class="text-lg mb-6">With the price on his head ever increasing, John Wick uncovers a path to defeating The High Table. But before he can earn his freedom, Wick must face off against a new enemy with powerful alliances across the globe and forces that turn old friends into foes.</p>
+                <div class="flex space-x-4">
+                    <button class="bg-primary hover:bg-primary/90 text-white px-6 py-2 rounded flex items-center space-x-2 transition">
+                        <i class="fas fa-play"></i>
+                        <span>Play</span>
+                    </button>
+                    <button class="bg-secondary hover:bg-secondary/80 text-white px-6 py-2 rounded flex items-center space-x-2 transition">
+                        <i class="fas fa-info-circle"></i>
+                        <span>More Info</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Main Content -->
+     <main class="container mx-auto px-4 py-8">
+        <!-- Trending Now -->
+        <section class="mb-12">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold">Trending Now</h2>
+                <a href="#" class="text-primary hover:underline">View All</a>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4" id="trendingMovies">
+                <!-- Movie cards will be inserted here by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Popular on NETLIFY -->
+        <section class="mb-12">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold">Popular on NETLIFY</h2>
+                <a href="#" class="text-primary hover:underline">View All</a>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4" id="popularMovies">
+                <!-- Movie cards will be inserted here by JavaScript -->
+            </div>
+        </section>
+
+        <!-- New Releases -->
+        <section class="mb-12">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold">New Releases</h2>
+                <a href="#" class="text-primary hover:underline">View All</a>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4" id="newMovies">
+                <!-- Movie cards will be inserted here by JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+   <footer class="bg-secondary text-gray-400 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
+                <div class="col-span-2">
+                    <h3 class="text-primary text-3xl font-bold mb-4">NETLIFY</h3>
+                    <p class="mb-4">The best place to stream unlimited movies and TV shows. Anytime. Anywhere.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-2xl hover:text-primary transition"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-2xl hover:text-primary transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-2xl hover:text-primary transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-2xl hover:text-primary transition"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white text-lg font-semibold mb-4">Navigation</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-primary transition">Home</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Movies</a></li>
+                        <li><a href="#" class="hover:text-primary transition">TV Shows</a></li>
+                        <li><a href="#" class="hover:text-primary transition">New Releases</a></li>
+                        <li><a href="#" class="hover:text-primary transition">My List</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white text-lg font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-primary transition">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Cookie Policy</a></li>
+                        <li><a href="#" class="hover:text-primary transition">GDPR</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white text-lg font-semibold mb-4">Help</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-primary transition">FAQ</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Feedback</a></li>
+                        <li><a href="#" class="hover:text-primary transition">System Status</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-sm">
+                <p>© 2023 NETLIFY. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
