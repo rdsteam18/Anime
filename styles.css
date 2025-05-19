@@ -1,0 +1,86 @@
+/* Clickable card effect */
+.movie-card {
+    transition: transform 0.2s ease;
+}
+
+.movie-card:hover {
+    transform: scale(1.05);
+}
+
+/* Prevent text selection */
+.movie-card * {
+    user-select: none;
+}
+.movie-card:hover .movie-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.movie-overlay {
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.hero {
+    background: linear-gradient(to right, rgba(20, 20, 20, 0.9), rgba(20, 20, 20, 0.7)), url('https://image.tmdb.org/t/p/original/9dKCd55IuTT5QRs989m9Qlb7d2B.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.search-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(229, 9, 20, 0.5);
+}
+
+.hamburger {
+    transition: all 0.3s ease;
+}
+
+.hamburger.active {
+    transform: rotate(90deg);
+}
+
+.mobile-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.mobile-menu.active {
+    max-height: 500px;
+}
+        .movie-backdrop {
+            background: linear-gradient(to right, rgba(20, 20, 20, 0.9), rgba(20, 20, 20, 0.7)), url('https://image.tmdb.org/t/p/original/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .cast-scroll::-webkit-scrollbar {
+            height: 5px;
+        }
+        .cast-scroll::-webkit-scrollbar-track {
+            background: #222222;
+        }
+        .cast-scroll::-webkit-scrollbar-thumb {
+            background: #E50914;
+            border-radius: 10px;
+        }
+        .similar-movies .movie-card:hover .movie-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .movie-overlay {
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .tab-button.active {
+            color: #E50914;
+            border-bottom: 2px solid #E50914;
+        }
