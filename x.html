@@ -63,6 +63,44 @@
     </form>
     <p id="message"></p>
   </div>
+<script>
+  const form = document.getElementById("movieForm");
+  const message = document.getElementById("message");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+    const data = {
+      id: formData.get("id"),
+      title: formData.get("title"),
+      year: formData.get("year"),
+      rating: formData.get("rating"),
+      poster: formData.get("poster"),
+      detail: formData.get("detail")
+    };
+
+    try {
+      const response = await fetch("https://script.google.com/macros/s/AKfycbzn6_11Wlcbb_CpTxvPR-n_yZHi5cAnubPx-iplMl0/dev", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+
+      const result = await response.json();
+      if (result.status === "success") {
+        message.textContent = "Movie added successfully!";
+        form.reset();
+      } else {
+        message.textContent = "Something went wrong!";
+      }
+    } catch (error) {
+      message.textContent = "Error: " + error.message;
+    }
+  });
+</script>
 
 </body>
 </html>
