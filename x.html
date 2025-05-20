@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Movie Submit Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f4f4f4;
+    }
+
+    .form-container {
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    .form-container h2 {
+      text-align: center;
+    }
+
+    input[type="text"], input[type="number"], input[type="url"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>Add Movie</h2>
+    <form id="movieForm">
+      <input type="text" name="id" placeholder="Movie ID" required>
+      <input type="text" name="title" placeholder="Title" required>
+      <input type="number" name="year" placeholder="Year" required>
+      <input type="text" name="rating" placeholder="Rating (e.g., 8.5)" required>
+      <input type="url" name="poster" placeholder="Poster URL" required>
+      <input type="url" name="detail" placeholder="Detail URL" required>
+      <button type="submit">Submit</button>
+    </form>
+    <p id="message"></p>
+  </div>
+
+</body>
+</html>
