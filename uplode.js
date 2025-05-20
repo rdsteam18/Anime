@@ -1,6 +1,6 @@
-const token = 'YOUR_PERSONAL_ACCESS_TOKEN_HERE';  // Step 1 में बनाया टोकन यहाँ डालें
-const owner = 'YOUR_GITHUB_USERNAME';            // आपका GitHub यूजरनेम
-const repo = 'YOUR_REPO_NAME';                    // आपका रिपोजिटरी नाम
+const token = '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';  // Step 1 में बनाया टोकन यहाँ डालें
+const owner = 'rdsteam18';            // आपका GitHub यूजरनेम
+const repo = 'Anime';                    // आपका रिपोजिटरी नाम
 const branch = 'main';                            // आपका ब्रांच नाम (जैसे main या master)
 const path = 'movies.json';                       // JSON फाइल का नाम/पाथ
 
